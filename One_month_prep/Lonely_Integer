@@ -1,0 +1,8 @@
+public static int lonelyinteger(List<Integer> a) {
+    // Write your code here
+        int result = 0;
+        for(int n:a){
+            result ^= n;   
+        }
+        return result;
+    }
