@@ -1,0 +1,21 @@
+public static void plusMinus(List<Integer> arr) {
+    // Write your code here
+    int positive_count=0; int negative_count=0; int zero_count=0; int len = arr.size();
+    for(Integer var: arr){
+        if(var>0){
+            positive_count+=1;
+        }else if(var<0){
+            negative_count+=1;
+        }else{
+            zero_count+=1;
+        }
+    }
+    double positive = (double)positive_count/len;
+    double negative = (double)negative_count/len;
+    double zero= (double)zero_count/len;
+    
+    System.out.println(String.format("%6f",positive));
+    System.out.println(String.format("%6f",negative));
+    System.out.println(String.format("%6f",zero));
+    }
+}
