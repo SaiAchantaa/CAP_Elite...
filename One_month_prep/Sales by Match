@@ -1,0 +1,24 @@
+public static int sockMerchant(int n, List<Integer> ar) {
+    // Write your code here
+    int sum =0;
+    Map <Integer, Integer> map = new HashMap<>();
+    for(Integer m : ar)
+    {
+        if(!map.containsKey(m))
+        {
+            map.put(m, 1);
+        }
+        else
+        {
+            int count = map.get(m);
+            map.put(m, count+1);
+        }
+    }
+    
+    for( Integer m1: map.values())
+    {
+        sum+=m1/2;
+    }
+    return sum;
+
+    }
