@@ -1,0 +1,23 @@
+public static List<Integer> countingSort(List<Integer> arr) {
+    // Write your code here
+    Map<Integer,Integer> map = new HashMap<>();
+    for(Integer n :arr){
+        if(!map.containsKey(n)){
+            map.put(n, 1);
+        }else{
+            int count= map.get(n);
+            map.put(n, count+1);
+        }
+    }
+    List <Integer> list = new ArrayList<>();
+    for( int i=0; i<100; i++){
+        if(map.containsKey(i)){
+            list.add(map.get(i));
+        }
+        else{
+            list.add(0);
+        }
+    }
+    return list;
+
+    }
