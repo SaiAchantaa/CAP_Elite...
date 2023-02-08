@@ -1,0 +1,63 @@
+class Account
+{
+ String   name;
+ int accountNo;
+ int balance ;
+    int dep=0;
+    Account(String name)
+    {
+    this.name=name;
+    }
+ void deposit(int x)
+ {
+     
+         dep=dep+x;
+ }
+ void withdraw(int y)
+ {
+  
+     if((dep-y)<0)
+     {
+     System.out.println("Negative Balance Transaction Cancelled");
+     }
+     else
+     {
+      dep=dep-y;  
+     }
+ 
+ }
+ void display(int p,String q)
+ {
+     System.out.println(p+" "+q+" "+dep);
+ }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner obj=new Scanner(System.in);
+        int acc;
+        acc=obj.nextInt();
+        String name=obj.next();
+        int lne=obj.nextInt();
+         Account object=new Account(name);
+        for(int i=0;i<lne+1;i++)
+        {
+          String[] depositions=obj.nextLine().split(" ");
+          if(depositions[0].equals("Deposit"))
+          {
+              object.deposit(Integer.parseInt(depositions[1]));
+          }
+          if(depositions[0].equals("Withdraw"))
+          {
+            object.withdraw(Integer.parseInt(depositions[1]));
+          }
+          if(depositions[0].equals("Display"))
+          {
+              object.display(acc,name);
+          }
+        }
+        
+        
+    }
+}
