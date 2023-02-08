@@ -1,0 +1,85 @@
+class Person
+{
+    private String firstname;
+    private String lastname;
+    public String  getFirstname()
+    {
+        return firstname;
+    }
+     public String getLastname()
+    {
+        return lastname;
+    }
+    
+    public String setLastname(String lastname)
+    {
+        return this.lastname=lastname;
+    }
+    
+    public String setFirstname(String firstname)
+    {
+        return this.firstname=firstname;
+    }
+}
+class Student extends Person 
+{
+private int id ;
+    private int [] marks;
+    private int sum=0;
+    public Student (String firstname,String lastname,int id,int [] marks)
+    {
+        super.setFirstname(firstname);
+        super.setLastname(lastname);
+        this.id=id;
+        this.marks=marks;
+    }
+    public int getId()
+    {
+        return id;
+    }
+    public int [] getMarks()
+    {
+        return marks;
+    }
+    public void display()
+    {
+    System.out.println("Name: "+super.getLastname()+", "+super.getFirstname());
+    System.out.println("ID: "+id);
+   for(int i=0;i<marks.length;i++)
+      {
+     sum+=marks[i];
+        }
+        if((sum/marks.length)>=90)
+        System.out.println("Grade: O");
+        if((sum/marks.length)<90&&(sum/marks.length)>=80)
+        System.out.println("Grade: E");
+          if((sum/marks.length)<80&&(sum/marks.length)>=70)
+           System.out.println("Grade: A");
+            if((sum/marks.length)<70&&(sum/marks.length)>=55)
+           System.out.println("Grade: P");
+            if((sum/marks.length)<55&&(sum/marks.length)>=40)
+           System.out.println("Grade: D");
+            if((sum/marks.length)<40)
+           System.out.println("Grade: T");    
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+       Scanner in=new Scanner(System.in);
+       String firstname =in.next();
+       String Lastname =in.next();
+       int id=in.nextInt();
+       in.nextLine();
+       int size =in.nextInt();
+       in.nextLine();
+       int [] marks= new int [size];
+       for(int i=0;i<size;i++)
+       {
+       marks[i]=in.nextInt();
+       }
+           Student obj=new Student(firstname,Lastname,id,marks);
+           obj.display();     
+    }
+}
