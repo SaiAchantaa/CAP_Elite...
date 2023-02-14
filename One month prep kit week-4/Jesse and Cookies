@@ -1,0 +1,20 @@
+public static int cookies(int k, List<Integer> A) {
+    // Write your code here
+    Collections.sort(A);
+    Queue<Integer> q = new PriorityQueue<>();
+    for(int i: A){
+        q.add(i);
+    }
+    int count=0;
+    while(q.size()>1 && q.peek()<k){
+        int n1= q.remove();
+        int n2 = q.remove();
+        q.add(n1+(n2*2));
+        count++;
+    }
+    if(q.size()==0 || q.peek()<k){
+        return -1;
+    }
+    return count;
+
+    }
